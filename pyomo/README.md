@@ -42,9 +42,7 @@ Note: the alternative to a `ConcreteModel()` is an `AbstractModel()` which accor
   
 #### Objective
 Minimize the total cost, which is the sum of the fixed costs for opening warehouses and the shipping costs for serving all customers:
-$$
-\text{Minimize} \quad Z = \sum_{i=1}^{N} F_i x_i + \sum_{i=1}^{N} \sum_{j=1}^{M} S_{ij} y_{ij}
-$$
+$$\text{Minimize} \quad Z = \sum_{i=1}^{N} F_i x_i + \sum_{i=1}^{N} \sum_{j=1}^{M} S_{ij} y_{ij}$$
 The first summand is the sum of the fixed costs for opening each warehouse, and the second summand is the cost of shipping the products to the customers from each warehouse. This objective function is specified in `pyomo` via:
 ```python
 model.obj = Objective(
