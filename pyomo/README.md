@@ -26,6 +26,8 @@ Consider a simplified warehouse location problem; a company wants to decide wher
 - the costs of opening a warehouse, 
 - and costs of shipping products to customers from the warehouses.
 
+Note: Realistically, these would be more like monthly costs - the estimated fixed monthly cost of maintaining the warehouse and the estimated monthly costs of shipping goods to customers. But the point here is just to practice using the package and translating business constraints into model constraints. 
+
 For this problem, we will instantiate a `ConreteModel()` in `pyomo`:
 ```python
 model = ConcreteModel()
