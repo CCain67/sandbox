@@ -26,6 +26,8 @@ Consider a simplified warehouse location problem; a company wants to decide wher
 - the costs of opening a warehouse, 
 - and costs of shipping products to customers from the warehouses.
 
+Note: Realistically, these would be more like monthly costs - the estimated fixed monthly cost of maintaining the warehouse and the estimated monthly costs of shipping goods to customers. But the point here is just to practice using the package and translating business constraints into model constraints. 
+
 For this problem, we will instantiate a `ConreteModel()` in `pyomo`:
 ```python
 model = ConcreteModel()
@@ -42,9 +44,7 @@ Note: the alternative to a `ConcreteModel()` is an `AbstractModel()` which accor
   
 #### Objective
 Minimize the total cost, which is the sum of the fixed costs for opening warehouses and the shipping costs for serving all customers:
-$$
-\text{Minimize} \quad Z = \sum_{i=1}^{N} F_i x_i + \sum_{i=1}^{N} \sum_{j=1}^{M} S_{ij} y_{ij}
-$$
+$$\text{Minimize} \quad Z = \sum_{i=1}^{N} F_i x_i + \sum_{i=1}^{N} \sum_{j=1}^{M} S_{ij} y_{ij}$$
 The first summand is the sum of the fixed costs for opening each warehouse, and the second summand is the cost of shipping the products to the customers from each warehouse. This objective function is specified in `pyomo` via:
 ```python
 model.obj = Objective(
