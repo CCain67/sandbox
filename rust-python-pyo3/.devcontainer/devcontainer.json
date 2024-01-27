@@ -1,0 +1,22 @@
+{
+    "name": "Rust+Python Project",
+    "build": {
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "initializeCommand": "echo 'Hello World!'",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.pythonPath": "/venv/bin/python",
+                "terminal.integrated.shell.linux": "/bin/bash"
+            },
+            "extensions": [
+                "ms-python.python",
+                "rust-lang.rust-analyzer",
+                "ms-toolsai.jupyter"
+            ]
+    }
+    }
+  }
+  
