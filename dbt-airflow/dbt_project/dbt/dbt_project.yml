@@ -1,0 +1,9 @@
+name: 'dbt_project'
+version: '1.7.6'
+profile: 'my_dbt_project'
+config-version: 2
+
+models:
+  dbt_project:
+    # applies to all files under models/
+    materialized: view

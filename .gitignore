@@ -1,1 +1,3 @@
 list.txt
+dbt-airflow/dbt_project/dbt/target
+dbt-airflow/dbt_project/dbt/logs
