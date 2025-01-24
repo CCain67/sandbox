@@ -1,0 +1,7 @@
+PWD /home/chase/repos/research-rag/corpus/manifold_glueing
+INPUT /etc/texmf/web2c/texmf.cnf
+INPUT /usr/share/texmf/web2c/texmf.cnf
+INPUT /usr/share/texlive/texmf-dist/web2c/texmf.cnf
+INPUT /var/lib/texmf/web2c/pdftex/pdflatex.fmt
+INPUT /home/chase/repos/research-rag/corpus/manifold_glueing/memo.tex
+OUTPUT memo.log

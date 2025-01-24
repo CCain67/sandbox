@@ -1,0 +1,122 @@
+Let $N$ be a topological manifold with connected boundary. In this note, we'll show that the mapping torus $T_f$ of a self-homeomorphism $f:N^{\circ}\to N^{\circ}$ of the interior admits a vertical boundary closure if and only if the $f$ is isotopic to the restriction of a homeomorphism $g:N\to N$, if and only if the cobordism $W_f\coloneq N\setminus fj(N^{\circ})$ determined by $f$ is a collar. The key step here is showing that the image of the restriction map $\res:\pi_0\Top(N)\to\pi_0\Top(N^{\circ})$ is a normal subgroup. The topological $h$-cobordism and $s$-cobordism theorems give immediate consequences. We use these to show that stabilization by $S^1$ guarantees a boundary closure for a certain dimension range. 
+
+Recall that for a self-homeomorphism $f:N\to N$ of a space $N$, the \term{mapping torus} is the bundle $T_f$ defined as the following quotient:
+\[
+	N\hookrightarrow T_f\coloneq\frac{N\times I}{(x,0)\sim(f(x),1)}\xrightarrow{\ p \ }S^1
+\]
+where the map to $S^1$ is the obvious projection. If $N$ is a compact manifold with boundary, then the vertical interior $\Int_{S^1}(T_f)$ is the mapping torus bundle of the restriction $f|_{N^{\circ}}$, and the vertical boundary $\partial_vT_f$ is the mapping torus of the restriction $f|_{\partial{N}}$. 
+
+We have the following well known classification theorem for mapping torus bundles:
+\begin{thm}
+    Let $f,g:M\to M$ be two self homeomorphisms of $M$ with $p_f:T_f\to S^1$ and $p_g:T_g\to S^1$ the bundle projections. Then, there exists a bundle isomorphism $T_f\to T_g$ if and only if $[f]$ and $[g]$ are conjugate in $\pi_0\Top(M)$.
+\end{thm}
+
+Immediately we have an implication for boundary closures of mapping tori of open manifolds. (See \cref)
+\begin{prop}
+If $M$ is the interior of a compact manifold $\bar{M}$ with boundary, and $f:M\to M$ is a homeomorphism, then the mapping torus $T_f$ is the interior of a bundle $E\to S^1$ with fiber $\bar{M}$ if and only if $f$ is isotopic to a conjugate of the restriction of a homeomorphism $\bar{f}:\bar{M}\to\bar{M}$ to the interior. 
+\end{prop}
+
+\begin{defn}
+Let $N$ and $N'$ be any two boundary closures of an open manifold $M$, and let $f:N^{\circ}\to(N')^{\circ}$ be a homeomorphism between the interiors. Fix a locally flat isotopy inverse $j:N\hookrightarrow N^{\circ}$ of the inclusion $N^{\circ}\hookrightarrow N$. For the manifold
+\[
+    W_f\coloneq N'\setminus fj(N^{\circ}),
+\]
+the triple $(W_f,fj|_{\partial{N}},i_{\partial{N'}})$ will be referred to as the \term{cobordism determined by $f$}, where $i_{\partial{N'}}$ is the inclusion of the boundary.
+\end{defn}
+
+\begin{remx}
+    As any two locally flat embeddings $j,j':N\hookrightarrow N^{\circ}$ inverse to the inclusion $N^{\circ}\hookrightarrow N$ are locally flat isotopic, we are justified in calling $W_f$ \emph{the} cobordism determined by $f$ (by the isotopy extension theorem).    
+\end{remx}
+   
+The following theorem describes how the properties of $f$ and the properties of the cobordism $W_f$ are related. 
+\begin{prop}\label{prop:image_of_res_iff_W_is_collar}
+Let $N$ have connected boundary, and let $f:N^{\circ}\to N^{\circ}$ be a homeomorphism. Then, $[f]$ is in the image of
+    \[
+        \res:\pi_0\Top(N)\to\pi_0\Top(N^{\circ})
+    \]
+    if and only if there exists a homeomorphism $t:W_f\to\partial{N}\times I$.
+\end{prop}
+The proof is straightforward, so it is given in the appendix for now. Before moving on, we will highlight an important property of the cobordism determined by a homeomorphism of interiors.
+
+Let $N_0$, $N_1$, and $N_2$ be compact manifolds with boundary, and suppose that $f:N_0^{\circ}\to N_1^{\circ}$ and $g:N_1^{\circ}\to N_2^{\circ}$ are two homeomorphisms between interiors. Then, as the process of converting (isotopy classes of) invertible embeddings into (isomorphism classes of) invertible cobordisms is functorial, it is not hard to show that we have an isomorphism of cobordisms $W_{g\circ f}\cong W_f\cup_{\partial{N_1}}W_g$. This implies the following corollary:
+
+\begin{cor}
+    The image of the restriction map $\res:\pi_0\Top(N)\to\pi_0\Top(N^{\circ})$ is a normal subgroup.
+\end{cor}
+\begin{proof}
+    Let $[\phi]\in\pi_0\Top(N^{\circ})$, and let $[g]\in\im(\res)$, and set $f\coloneq \phi\circ g\circ\phi^{-1}$. By \cref{prop:image_of_res_iff_W_is_collar}, it suffices to show that the cobordism $W_f$ determined by $f$ is a cylinder. Indeed, as $g\in\im(\res)$, there exists a homeomorphism $t:W_g\to\partial{N}\times I$ again by \cref{prop:image_of_res_iff_W_is_collar}. This implies:  
+    \[
+        W_f \cong W_{\phi}\cup_{\partial{N}}W_g\cup_{\partial{N}}W_{\phi^{-1}} \cong W_{\phi}\cup_{\partial{N}}(\partial{N}\times I)\cup_{\partial{N}}W_{\phi^{-1}}\cong W_{\phi}\cup_{\partial{N}}W_{\phi^{-1}} \cong \partial{N}\times I
+    \]
+    as needed. 
+\end{proof}
+
+Now, as promised we will use the above corollary to refine the condition guaranteeing that the mapping torus of a homeomorphism of an open manifold admits a vertical boundary closure. For a compact manifold $N$ with connected boundary, let $f:N^{\circ}\to N^{\circ}$ be a homeomorphism. Then, the mapping torus $T_f$ of $f$ is the vertical interior of a bundle $T_g$ for some homeomorphism $g:N\to N$ if and only if for some $\phi\in\Top(N^{\circ})$:
+\[
+    [f] = [\phi\circ g|_{N^{\circ}}\circ\phi^{-1}] = [\phi]\cdot[g|_{N^{\circ}}]\cdot[\phi]^{-1} \in \pi_0\Top(N^{\circ}).
+\]
+As the image of the restriction map is a normal subgroup, the above is equivalent to the statement that $[f]\in\im(\res)$. By \cref{prop:image_of_res_iff_W_is_collar}, this is equivalent to the existence of a homeomorphism $t:W_f\to\partial{N}\times I$. We have therefore shown:
+
+\begin{cor}
+    Let $N$ be a compact manifold with boundary, and let $f:N^{\circ}\to N^{\circ}$ be a homeomorphism. Then, the following three conditions are equivalent:
+    \begin{enumerate}
+    \item $T_f$ admits a vertical boundary closure,
+    \item $f$ is isotopic to the restriction of a homeomorphism $g:N\to N$,
+    \item the cobordism $W_f$ determined by $f$ is a collar.    
+    \end{enumerate}
+\end{cor}
+
+\begin{remx}
+    Note that this implies that given a compact manifold $N$ with boundary, and a homeomorphism $f:N^{\circ}\to N^{\circ}$, the mapping torus $T_f$ will fail to admit a vertical boundary closure if and only if the cobordism $W_f$ determined by $f$ is inertial. Inertial cobordisms have been studied by Jahren and Kwasik in \cite{jahren2018whitehead}.
+\end{remx}
+
+The topological $h$-cobordism theorem gives more immediate consequences. 
+\begin{cor}
+Let $N$ be an compact manifold of $\dim(N)\geq 5$ with $\partial{N}$ simply connected, and let $f:N^{\circ}\to N^{\circ}$ be a homeomorphism of the interior. Then, 
+    \begin{enumerate}
+        \item $f$ is isotopic to the restriction of a homeomorphism $g:N\to N$. 
+        \item The mapping torus $T_f$ admits a vertical boundary closure.
+    \end{enumerate}
+\end{cor}
+
+The topological $s$-cobordism theorem is true for cobordisms $W$ of $\dim(W)\geq 6$. Thus we also have:
+\begin{cor}\label{cor:s_cobordism_torus_bundle}
+Let $N$ be a compact manifold of $\dim(N)\geq 6$ with $\partial{N}$ connected, and let $f:N^{\circ}\to N^{\circ}$ be a homeomorphism of the interior. Then, the following are equivalent:
+\begin{enumerate}
+    \item $\tau(W_f,\partial{N})=0$
+    \item $f$ is isotopic to the restriction of a homeomorphism $g:N\to N$,    
+    \item the mapping torus $T_f$ admits a vertical boundary closure.
+\end{enumerate}
+\end{cor}
+
+Recall that for two homotopy equivalences $f:X\to X'$ and $g:Y\to Y'$, the Whitehead torsion of the product $f\times g:X\times Y\to X'\times Y'$ is given by:
+\[
+    \tau(f\times g) = \chi(X)\cdot j_*\tau(g) + \chi(Y)\cdot i_*\tau(f) 
+\]
+where $j$ and $i$ are the inclusions:
+\[
+    X\hookrightarrow X\times Y\quand Y\hookrightarrow X\times Y.
+\]
+which satisfy $x\mapsto (x,y_0)$ and $y\mapsto (x_0,y)$ for some fixed basepoints $x_0\in X$ and $y_0\in Y$. In the event that $g = \id_{S^1}:S^1\to S^1$, we have:
+\[
+    \tau(f\times\id_{S^1}) = \chi(X)\cdot j_*\tau(\id_{S^1}) + \chi(S^1)\cdot i_*\tau(f) = 0
+\]
+by the topological invariance of Whitehead torsion, and $\chi(S^1)=0$. 
+
+With the above in mind, let $N$ be a compact manifold with boundary of $\dim(N)\geq 6$, and let $f:N^{\circ}\to N^{\circ}$ be a homeomorphism. Form the mapping torus $T_f$ of $f$, and consider the product $T_f\times S^1$. This gives a new bundle over $S^1$ with fiber $N^{\circ}\times S^1$:
+\[
+    N^{\circ}\times S^1\hookrightarrow T_f\times S^1\xrightarrow{\ p\circ\pr_{T_f} \ }S^1.
+\]
+It's not hard to show that this is the mapping torus of the homeomorphism $f\times\id_{S^1}:N^{\circ}\times S^1\to N^{\circ}\times S^1$. Moreover, the cobordism determined by $f\times\id_{S^1}$ is exactly $W_f\times S^1$, and the inclusion 
+\[
+    \partial{N}\times S^1\hookrightarrow W_f\times S^1
+\]
+is the product of the original inclusion $\partial{N}\hookrightarrow W_f$ with the identity map $\id_{S^1}$. Now, the computation above implies $\tau(W_f\times S^1,\partial{N}\times S^1)=0$. By \cref{cor:s_cobordism_torus_bundle}, this implies that $T_f\times S^1$ admits a vertical boundary closure.
+
+\begin{prop}
+Let $f:N^{\circ}\to N^{\circ}$ be an end preserving homeomorphism. Then, $[f]$ is in the image of
+    \[
+        \res:\pi_0\Top(N)\to\pi_0\Top(N^{\circ})
+    \]
+    if and only if there exists a homeomorphism $t:W_f\to\partial{N}\times I$.
+\end{prop}

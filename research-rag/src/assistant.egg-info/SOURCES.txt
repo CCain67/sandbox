@@ -1,0 +1,15 @@
+README.md
+pyproject.toml
+src/assistant/__init__.py
+src/assistant/config.py
+src/assistant.egg-info/PKG-INFO
+src/assistant.egg-info/SOURCES.txt
+src/assistant.egg-info/dependency_links.txt
+src/assistant.egg-info/requires.txt
+src/assistant.egg-info/top_level.txt
+src/assistant/chat/__init__.py
+src/assistant/chat/ask.py
+src/assistant/tex_pipeline/__init__.py
+src/assistant/tex_pipeline/vectorize.py
+src/assistant/vector_db/__init__.py
+src/assistant/vector_db/utils.py

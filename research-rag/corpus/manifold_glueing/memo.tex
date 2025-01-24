@@ -1,0 +1,47 @@
+Suppose that we have two smooth manifolds $M_0$ and $M_1$ for which $\partial{M_0}$ and $\partial{M_1}$ are diffeomorphic via some diffeomorphism $f:\partial{M_0}\to\partial{M_1}$. We may form the new (topological) manifold:
+\[
+    M_0\cup_f M_1 = \dfrac{M_0\amalg M_1}{p_0\sim f(p_0)},\quad p_0\in\partial{M_0}.
+\]
+Here we have our first ambiguity - the manifold structure here depends on the underlying homeomorphism of $\phi$. This should not be terribly surprising, after all, one can take the product $[-1,1]\times [-1,1]$ and glue the sides $\set{-1}\times[-1,1]$ and $\set{1}\times[-1,1]$ together along the identity to form a cylinder, or along the map $(x,y)\mapsto(x,-y)$ to form a M\"obius strip. So, suppose that we have chosen the diffeomorphism $f$. We may now ask whether or not the resulting manifold $M_0\cup_f M_1$ is smooth. The reality is that this is not necessarily the case. 
+
+\begin{exm}
+    Consider the manifold $X = \R_{\leq 0}\cup_0\R_{\geq 0}$. When is a function smooth on $X$? Consider the functions:
+    \[
+        f:\R_{\leq0}\to\R,\quad f(x) = x+1,\quand g:\R_{\geq0}\to\R,\quad g(x) = 1-x.
+    \]
+    These agree at $x=0$, but the resulting glued function:
+    \[
+        h:X\to\R,\quad h(x) = \begin{cases}
+            x+1 & x\leq 0,\\
+            1-x & x\geq 0,
+        \end{cases}
+    \]
+    is not smooth at $x=0$.
+\end{exm}
+
+So the issue here is clearly not with the manifold structure, but with the smooth structure. We can correct this as follows: fix collar neighborhoods:
+\[
+    c_0:\partial{M_0}\times{I}\to M_0 \quand c_1:\partial{M_1}\times{I}\to M_1,
+\]
+let $\pi:M_0\cup M_1\to M_0\cup_fM_1$ be the projection map, and define:
+\[
+    c:\partial{M_0}\times[-1,1]\to M_0\cup_f M_1,\quad c(p,t) = \begin{cases}
+        (\pi\circ c_0)(p,t) & t \geq 0,\\
+        (\pi\circ c_1)(f(p),t) & t\leq 0
+    \end{cases}.
+\]
+Note that when $t=0$, we have 
+\[
+    \pi(p) = (\pi\circ c_0)(p,0) = (\pi\circ c_1)(f(p),0) = \pi(f(p)),
+\]
+so $c$ is well-defined. From here, for a smooth manifold $N$, we define a map $\phi:M_0\cup_f M_1\to N$ to be smooth if and only if both maps:
+\[
+    \phi\circ\pi:M_0^{\circ}\amalg M_1^{\circ}\to N \quand \phi\circ c:\partial{M_0}\times(-1,1)\to N
+\]
+are smooth. This gives rise to a smooth structure on $M_0\cup_f M_1$. In fact, we have:
+
+\begin{prop}
+    This gives a unique smooth structure on $M_0\cup_f M_1$.
+\end{prop}
+
+Uniqueness follows from the fact that any two collar neighborhoods are smoothly isotopic.
