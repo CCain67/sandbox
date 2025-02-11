@@ -1,25 +1,11 @@
 import openai
 
-from ..config import EMBEDDING_MODEL, OPENAI_API_KEY, QDRANT_CLIENT
-
-
-def get_qdrant_context(query: str):
-    """Get context from Qdrant based on a query."""
-    query_vector = EMBEDDING_MODEL.embed_query(query)
-
-    results = QDRANT_CLIENT.search(
-        collection_name="personal_notes",
-        query_vector=query_vector,
-        limit=3,
-    )
-
-    context = "\n".join(
-        [
-            f"Context {i+1}: {result.payload['content']}"
-            for i, result in enumerate(results)
-        ]
-    )
-    return context
+from assistant.config import (
+    LLM,
+    LLM_ROLE,
+    OPENAI_API_KEY,
+)
+from assistant.vector_db.utils import get_qdrant_context
 
 
 def ask(question: str) -> None:
@@ -30,7 +16,7 @@ def ask(question: str) -> None:
     chat_completion = client.chat.completions.create(
         messages=[
             {
-                "role": "system",
+                "role": LLM_ROLE,
                 "content": "You are a helpful assistant knowledgeable about mathematics specializing in the intersection of manifolds, K-theory, and homotopy theory.",
             },
             {
@@ -45,7 +31,8 @@ def ask(question: str) -> None:
             """,
             },
         ],
-        model="gpt-4o",
+        model=LLM,
+        stream=False,
     )
 
     print(chat_completion.choices[0].message.content)

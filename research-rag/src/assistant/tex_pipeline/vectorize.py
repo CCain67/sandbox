@@ -2,7 +2,7 @@
 
 from langchain.schema import Document
 
-from ..config import EMBEDDING_MODEL
+from assistant.config import EMBEDDING_MODEL
 
 
 def chunkify(path: str) -> list[str]:

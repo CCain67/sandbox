@@ -6,7 +6,7 @@ from langchain.schema import Document
 from qdrant_client.http.models import VectorParams
 from qdrant_client.models import PointStruct
 
-from ..config import EMBEDDING_MODEL, QDRANT_CLIENT
+from assistant.config import EMBEDDING_MODEL, QDRANT_CLIENT
 
 
 def define_collection(collection_name: str, vector_size: int = 1536) -> None:
@@ -51,9 +51,21 @@ def query_collection(collection_name: str, query: str, limit: int = 3):
         collection_name=collection_name, query_vector=query_vector, limit=limit
     )
 
-    # Display the results
-    for result in results:
-        print(f"Score: {result.score}")
-        print(f"Filename: {result.payload['filename']}")
-        print(f"Content: {result.payload['content']}")
-        print("---")
+    return results
+
+
+def get_qdrant_context(
+    query: str, collection_name: str = "personal_notes", limit: int = 3
+):
+    """Get context from Qdrant based on a query."""
+    results = query_collection(
+        collection_name=collection_name, query=query, limit=limit
+    )
+
+    context = "\n".join(
+        [
+            f"Context {i+1}: {result.payload['content']}"
+            for i, result in enumerate(results)
+        ]
+    )
+    return context
